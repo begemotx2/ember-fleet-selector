@@ -1,3 +1,29 @@
 <h2 id="title">Welcome to Ember</h2>
 
 {{outlet}}
+
+<hr/>
+
+{{#fleet-selector model=model childKey='fleet' as |sites|}}
+    {{#sites.selector 
+        label="Sites" 
+        options=sites.children 
+        value=site
+        onSelect=(action (mut site)) 
+        childKey="plants"
+        as |plants|}}
+        {{#plants.selector 
+            label="Plants" 
+            options=plants.children 
+            value=plant 
+            onSelect=(action (mut plant)) 
+            childKey="units"
+            as |units|
+        }}
+            {{units.selector label="Units" 
+                options=units.children 
+                value=unit 
+                onSelect=(action (mut unit))}}
+        {{/plants.selector}}
+    {{/sites.selector}}
+{{/fleet-selector}}
