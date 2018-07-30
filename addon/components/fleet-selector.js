@@ -7,12 +7,7 @@ export default Component.extend({
   layout,
 
   childKey: '',
-
   children: computed('model', 'childKey', function () {
-    //console.log( get(this.get('model'), this.get('childKey')) );
     return get(this.get('model'), this.get('childKey'));
   }),
-
-  
-
 });

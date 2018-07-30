@@ -3,6 +3,6 @@
     {{x-select model=options valueKey=valueKey onSelect=(action "onSelect") value=value}}
     {{yield (hash
         selector=(component "fleet-selector-element" valueKey="id")
-        children=children
+        items=children
     )}}
 </div>
